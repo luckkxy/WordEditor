@@ -1,30 +1,17 @@
 # editor
+文字编辑器插件
+import makedownplugin from '@/plugin/makedown'
+Vue.use(makedownplugin)
 
-> editor
+全局注册了以后，可以在任何一个页面上引用组件
+<template>
+    <div>
+        <markdown @getData="getdata" width="100%" height="300px">
+          <!--这是插槽-->
+        </markdown>
+    </div>
+</template>
 
-## Build Setup
+@getData有两个参数，传递了编辑器的内容，和选中文本。得到了选中文本，就可以对插件进行拓展。
 
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+/src/doc 是插件使用例子
